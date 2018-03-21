@@ -2,7 +2,6 @@
 #include "matrixDiag.h"
 
 enum type{MATRIX_2D,MATRIX_DIAG};
-
 struct matrix
 {
 	type key;
@@ -11,3 +10,4 @@ struct matrix
 matrix* inMatrix(ifstream &ifst);
 void MatrixOut(matrix* matr, ofstream & ofst);
 void OutMatrDiag(ofstream &ofst, MatrixDiag* matrd);
+void MatrSum(matrix* matr);

@@ -17,8 +17,21 @@ matrix* inMatrix(ifstream &ifst)
 		matr->obj = (void*)InMatrDiag(ifst);
 
 	}
+	
 
 	return matr;
+};
+void MatrSum(matrix* matr)
+{
+	if (matr->key == MATRIX_2D)
+	{
+		Matr2Sum(((Matr2d*)matr->obj));
+	}
+	if (matr->key == MATRIX_DIAG)
+	{
+		MatrDiagSum(((MatrixDiag*)matr->obj));
+	}
+	
 };
 
 void MatrixOut(matrix* matr, ofstream & ofst)
@@ -32,4 +45,6 @@ void MatrixOut(matrix* matr, ofstream & ofst)
 	{
 		OutMatrDiag(ofst, ((MatrixDiag*)matr->obj));
 	}
-};
+	
+}
+

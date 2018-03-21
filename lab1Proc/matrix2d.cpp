@@ -28,4 +28,16 @@ void OutMatr2d(ofstream &ofst, Matr2d* matr2)
 		}
 		ofst << endl;
 	}
+	ofst << "сумма эл-ов :" << matr2->sum<<endl;
+};
+void Matr2Sum(Matr2d*matrix)
+{
+	matrix->sum = 0;
+	for (int i = 0; i < matrix->strings; i++)
+	{
+		for (int j = 0; j < matrix->collums; j++)
+		{
+			matrix->sum = matrix->sum + matrix->matr[i][j];
+		}
+	}
 };
