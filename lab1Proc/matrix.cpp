@@ -17,6 +17,12 @@ matrix* inMatrix(ifstream &ifst)
 		matr->obj = (void*)InMatrDiag(ifst);
 
 	}
+	if (key == 3)
+	{
+		matr->key = TRG_MATR;
+		matr->obj = (void*)InMatrTrg(ifst);
+
+	}
 
 	return matr;
 };
@@ -32,4 +38,9 @@ void MatrixOut(matrix* matr, ofstream & ofst)
 	{
 		OutMatrDiag(ofst, ((MatrixDiag*)matr->obj));
 	}
+	if (matr->key == TRG_MATR)
+	{
+		OutTrgMatr(ofst, ((Trgmatr*)matr->obj));
+	}
+
 };

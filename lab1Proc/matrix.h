@@ -1,7 +1,7 @@
 #include "matrix2d.h"
 #include "matrixDiag.h"
-
-enum type{MATRIX_2D,MATRIX_DIAG};
+#include "Trgmatr.h"
+enum type{MATRIX_2D,MATRIX_DIAG,TRG_MATR};
 
 struct matrix
 {
