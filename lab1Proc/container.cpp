@@ -80,6 +80,7 @@ void ViewCont(container &c, ofstream &ofst )
 	ofst << "В контйнере " << c.size << " эл. " << endl;
 	while (n->next!=c.head)
 	{
+		MatrSum(n->info);
 		MatrixOut(n->info, ofst);
 		n = n->next;
 	}
