@@ -25,11 +25,11 @@ void MatrSum(matrix* matr)
 {
 	if (matr->key == MATRIX_2D)
 	{
-		Matr2Sum(((Matr2d*)matr->obj));
+		matr->sum=Matr2Sum(((Matr2d*)matr->obj));
 	}
 	if (matr->key == MATRIX_DIAG)
 	{
-		MatrDiagSum(((MatrixDiag*)matr->obj));
+		matr->sum=MatrDiagSum(((MatrixDiag*)matr->obj));
 	}
 	
 };
@@ -45,6 +45,16 @@ void MatrixOut(matrix* matr, ofstream & ofst)
 	{
 		OutMatrDiag(ofst, ((MatrixDiag*)matr->obj));
 	}
-	
+	ofst << "сумма эл-ов :" << matr->sum<<endl;
+};
+bool Compare(matrix* m1, matrix* m2, int metod)
+{
+	if (metod == 1)
+	{
+		return (m1->sum > m2->sum);
+	}
+	if (metod == 2)
+	{
+		return (m1->sum < m2->sum);
+	}
 }
-

@@ -20,13 +20,13 @@ void OutMatrDiag(ofstream &ofst, MatrixDiag* matrd)
 		ofst << matrd->Diagmatr[i] << " " ;
 	}
 	ofst << endl;
-	ofst << "сумма эл-ов :" << matrd->sum<<endl;
 };
-void MatrDiagSum(MatrixDiag* matrix)
+int MatrDiagSum(MatrixDiag* matrix)
 {
-	matrix->sum = 0;
+	int sum = 0;
 	for (int i = 0; i < matrix->size; i++)
 	{
-		matrix->sum = matrix->sum + matrix->Diagmatr[i];
+		sum = sum + matrix->Diagmatr[i];
 	}
+	return sum;
 }

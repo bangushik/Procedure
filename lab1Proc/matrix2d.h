@@ -12,4 +12,4 @@ struct Matr2d
 
 Matr2d* InMatr2d(ifstream &ifst);
 void OutMatr2d( ofstream &ofst, Matr2d* matr);
-void Matr2Sum(Matr2d* matr);
+int Matr2Sum(Matr2d* matr);

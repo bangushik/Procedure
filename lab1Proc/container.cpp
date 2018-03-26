@@ -68,6 +68,39 @@ void inContainer(container &c, ifstream &ifst)
 	}
 
 };
+void ContainerSort(container &c)
+{
+	node *cur;
+	node *next;
+	matrix* temp;
+	bool isSorted;
+	int metod = GetMethod();
+	do
+	{
+		isSorted = true;
+		cur = c.head;
+		while (cur->next != c.head)
+		{
+			next = cur->next;
+			if (Compare(cur->info, next->info, metod))
+			{
+				temp = cur->info;
+				cur->info = next->info;
+				next->info = temp;
+				isSorted = false;
+			}
+			cur = cur->next;
+		}
+	} while (!isSorted);
+};
+int GetMethod()
+{
+	int metod;
+	cout << "Vvedite metod sotririvki 1-vozrastanie 2-ubivanie" << endl;
+	cin >> metod;
+	return metod;
+}
+
 
 void ViewCont(container &c, ofstream &ofst )
 {
@@ -81,8 +114,11 @@ void ViewCont(container &c, ofstream &ofst )
 	while (n->next!=c.head)
 	{
 		MatrSum(n->info);
+
 		MatrixOut(n->info, ofst);
 		n = n->next;
 	}
+	MatrSum(n->info);
 	MatrixOut(n->info, ofst);
+	
 };
