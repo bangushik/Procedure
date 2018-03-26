@@ -20,16 +20,39 @@ matrix* inMatrix(ifstream &ifst)
 
 	return matr;
 };
-
 void MatrixOut(matrix* matr, ofstream & ofst)
 {
+		if (matr->key == MATRIX_2D)
+		{
+			OutMatr2d(ofst, ((Matr2d*)matr->obj));
+		}
+		if (matr->key == MATRIX_DIAG)
+		{
+			OutMatrDiag(ofst, ((MatrixDiag*)matr->obj));
+		}
+};
 
-	if (matr->key== MATRIX_2D)
+void MatrixOutFilter(matrix* matr, ofstream & ofst,int param)
+{
+	if (param == 2)
 	{
-		OutMatr2d(ofst,((Matr2d*)matr->obj));
+		if (matr->key == MATRIX_2D)
+		{
+			OutMatr2d(ofst, ((Matr2d*)matr->obj));
+		}
 	}
-	if (matr->key==MATRIX_DIAG)
+	if (param == 1)
 	{
-		OutMatrDiag(ofst, ((MatrixDiag*)matr->obj));
+		if (matr->key == MATRIX_DIAG)
+		{
+			OutMatrDiag(ofst, ((MatrixDiag*)matr->obj));
+		}
 	}
 };
+int InMethod()
+{
+	int param;
+	cout << "Viberete matrizi dlya vivoda 1- diag 2-2d" << endl;
+	cin >> param;
+	return param;
+}

@@ -10,4 +10,6 @@ struct matrix
 };
 matrix* inMatrix(ifstream &ifst);
 void MatrixOut(matrix* matr, ofstream & ofst);
+void MatrixOutFilter(matrix* matr, ofstream & ofst, int param);
 void OutMatrDiag(ofstream &ofst, MatrixDiag* matrd);
+int InMethod();

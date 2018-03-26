@@ -78,10 +78,21 @@ void ViewCont(container &c, ofstream &ofst )
 		return;
 	}
 	ofst << "В контйнере " << c.size << " эл. " << endl;
+	int param = InMethod();
 	while (n->next!=c.head)
 	{
 		MatrixOut(n->info, ofst);
 		n = n->next;
 	}
 	MatrixOut(n->info, ofst);
+	ofst  << endl << endl;
+	ofst << "В контйнере " << c.size << " эл. " << endl;
+	 n = c.head;
+	while (n->next != c.head)
+	{
+	
+		MatrixOutFilter(n->info, ofst, param);
+		n = n->next;
+	}
+	MatrixOutFilter(n->info, ofst, param);
 };

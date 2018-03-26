@@ -5,6 +5,7 @@ int main(int argc, char* argv[])
 	container c;
 	ifstream ifst(argv[1]);
 	ofstream ofst(argv[2]);
+	
 	if(argc !=3) 
 	{
 		cout << "incorrect command line!" << endl;
@@ -13,7 +14,6 @@ int main(int argc, char* argv[])
 	inContainer(c, ifst);
 	ViewCont(c, ofst);
 	clear(c);
-	ViewCont(c, ofst);
-	
+	ViewCont(c, ofst);	
 	return 0;
 } 
