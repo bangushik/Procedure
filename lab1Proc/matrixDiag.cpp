@@ -17,7 +17,71 @@ void OutMatrDiag(ofstream &ofst, MatrixDiag* matrd)
 	ofst << matrd->size << endl;
 	for (int i = 0; i < matrd->size; i++)
 	{
-		ofst << matrd->Diagmatr[i] << " " ;
+		for (int j = 0;j < matrd->size;j++)
+		{
+			if (i == j)
+			{
+				ofst << matrd->Diagmatr[i] << " ";
+			}
+			else
+			{
+				ofst<<"0 ";
+			}
+			
+		}
+		ofst << endl;
 	}
 	ofst << endl;
 };
+void OutMatrDiagC(ofstream &ofst, MatrixDiag* matrd)
+{
+	ofst << "Это диагональная матрица: ";
+	ofst << matrd->size << endl;
+	for (int i = 0; i < matrd->size; i++)
+	{
+		for (int j = 0;j < matrd->size;j++)
+		{
+			if (i == j)
+			{
+				ofst << matrd->Diagmatr[i] << " ";
+			}
+			else
+			{
+				ofst << "0 ";
+			}
+
+		}
+		ofst << endl;
+	}
+	ofst << endl;
+};
+void OutMatrDiagL(ofstream &ofst, MatrixDiag* matrd)
+{
+	ofst << "Это диагональная матрица: ";
+	ofst << matrd->size << endl;
+	for (int i = 0; i < matrd->size; i++)
+	{
+		for (int j = 0;j < matrd->size;j++)
+		{
+			if (i == j)
+			{
+				ofst << matrd->Diagmatr[i] << " ";
+			}
+			else
+			{
+				ofst << "0 ";
+			}
+
+		}
+
+	}
+	ofst << endl;
+};
+void MatrDiagSum(MatrixDiag* matrix)
+{
+	matrix->sum = 0;
+	for (int i = 0; i < matrix->size; i++)
+	{
+		matrix->sum = matrix->sum + matrix->Diagmatr[i];
+	}
+}
