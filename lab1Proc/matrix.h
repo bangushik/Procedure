@@ -19,5 +19,7 @@ void MatrixOut(matrix* matr, ofstream & ofst);
 void OutMatrDiag(ofstream &ofst, MatrixDiag* matrd);
 void OutMatrDiagC(ofstream &ofst, MatrixDiag* matrd);
 void OutMatrDiagL(ofstream &ofst, MatrixDiag* matrd);
-
 void MatrSum(matrix* matr);
+void MatrixOutFilter(matrix* matr, ofstream & ofst, int param);
+int InMethod();
+

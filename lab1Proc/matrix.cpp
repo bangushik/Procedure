@@ -45,6 +45,7 @@ matrix* inMatrix(ifstream &ifst)
 	}
 	return matr;
 };
+
 void MatrSum(matrix* matr)
 {
 	if (matr->key == MATRIX_2D)
@@ -54,12 +55,20 @@ void MatrSum(matrix* matr)
 	if (matr->key == MATRIX_DIAG)
 	{
 		MatrDiagSum(((MatrixDiag*)matr->obj));
+
+	}
+	if (matr->key == TRG_MATR)
+	{
+		MatrTRGSum((Trgmatr*)matr->obj);
 	}
 };
 
+
+
+
 void MatrixOut(matrix* matr, ofstream & ofst)
 {
-	if (matr->print == STRINGS)
+      if (matr->print == STRINGS)
 	{
 
 		if (matr->key == MATRIX_2D)
@@ -70,6 +79,11 @@ void MatrixOut(matrix* matr, ofstream & ofst)
 		{
 			OutMatrDiag(ofst, ((MatrixDiag*)matr->obj));
 		}
+		if (matr->key == TRG_MATR)
+		{
+			OutTrgMatr(ofst, ((Trgmatr*)matr->obj));
+		}
+
 	}
 	if (matr->print == COLUMNS)
 	{
@@ -82,6 +96,11 @@ void MatrixOut(matrix* matr, ofstream & ofst)
 		{
 			OutMatrDiagC(ofst, ((MatrixDiag*)matr->obj));
 		}
+		if (matr->key == TRG_MATR)
+		{
+			OutMatrTrgC(ofst, ((Trgmatr*)matr->obj));
+		}
+
 		
 	}
 	if (matr->print == LINE)
@@ -95,12 +114,44 @@ void MatrixOut(matrix* matr, ofstream & ofst)
 		{
 			OutMatrDiagL(ofst, ((MatrixDiag*)matr->obj));
 		}
-		
+		if (matr->key == TRG_MATR)
+		{
+			OutMatrTrgL(ofst, ((Trgmatr*)matr->obj));
+		}
 	}
 
-	if (matr->key == TRG_MATR)
+	
+
+};
+
+void MatrixOutFilter(matrix* matr, ofstream & ofst,int param)
+{
+	if (param == 2)
 	{
-		OutTrgMatr(ofst, ((Trgmatr*)matr->obj));
+		if (matr->key == MATRIX_2D)
+		{
+			MatrixOut(matr, ofst);
+		}
 	}
-
+	if (param == 1)
+	{
+		if (matr->key == MATRIX_DIAG)
+		{
+			MatrixOut(matr,ofst);
+		}
+	}
+	if (param == 3)
+	{
+		if (matr->key ==TRG_MATR)
+		{
+			MatrixOut(matr,ofst);
+		}
+	}
+};
+int InMethod()
+{
+	int param;
+	cout << "Viberete matrizi dlya vivoda 1- diag 2-2d 3-Trg" << endl;
+	cin >> param;
+	return param;
 }
