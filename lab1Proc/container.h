@@ -19,6 +19,8 @@ void clear(container &c);
 void out(container &c, node *n);
 void inContainer(container &c, ifstream &ifst);
 void ViewCont(container &c, ofstream &ofst);
+void ContainerSort(container &c);
+int GetMethod();
 
 
 

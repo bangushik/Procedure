@@ -101,13 +101,14 @@ void OutMatrTrgL(ofstream &ofst, Trgmatr* matr)
 	}
 
 };
-void MatrTRGSum(Trgmatr*matr)
+int MatrTRGSum(Trgmatr*matr)
 {
-	matr->sum = 0;
+	int sum = 0;
 	for (int i = 0; i < matr->size; i++)
 	{
 		
-			matr->sum = matr->sum + matr->trg[i];
+			sum = sum + matr->trg[i];
 		
 	}
+	return sum;
 }

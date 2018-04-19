@@ -13,6 +13,8 @@ int main(int argc, char* argv[])
 	}
 	inContainer(c, ifst);
 	ViewCont(c, ofst);
+	ContainerSort(c);
+	ViewCont(c, ofst);
 	clear(c);
 	ViewCont(c, ofst);	
 	return 0;

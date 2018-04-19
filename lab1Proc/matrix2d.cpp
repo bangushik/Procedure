@@ -62,14 +62,18 @@ void OutMatr2dL(ofstream &ofst, Matr2d*matr2)
 	}
 	ofst << endl;
 };
-void Matr2Sum(Matr2d*matrix)
+
+int Matr2Sum(Matr2d*matrix)
 {
-	matrix->sum = 0;
+	int sum = 0;
 	for (int i = 0; i < matrix->strings; i++)
 	{
 		for (int j = 0; j < matrix->collums; j++)
 		{
-			matrix->sum = matrix->sum + matrix->matr[i][j];
+
+			sum = sum + matrix->matr[i][j];
 		}
 	}
+	return sum;
+
 };

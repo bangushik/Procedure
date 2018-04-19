@@ -41,7 +41,6 @@ matrix* inMatrix(ifstream &ifst)
 	{
 		matr->key = TRG_MATR;
 		matr->obj = (void*)InMatrTrg(ifst);
-
 	}
 	return matr;
 };
@@ -147,6 +146,7 @@ void MatrixOutFilter(matrix* matr, ofstream & ofst,int param)
 			MatrixOut(matr,ofst);
 		}
 	}
+	ofst << "сумма эл-ов :" << matr->sum<<endl;
 };
 int InMethod()
 {
@@ -154,4 +154,16 @@ int InMethod()
 	cout << "Viberete matrizi dlya vivoda 1- diag 2-2d 3-Trg" << endl;
 	cin >> param;
 	return param;
+}
+
+bool Compare(matrix* m1, matrix* m2, int metod)
+{
+	if (metod == 1)
+	{
+		return (m1->sum > m2->sum);
+	}
+	if (metod == 2)
+	{
+		return (m1->sum < m2->sum);
+	}
 }
