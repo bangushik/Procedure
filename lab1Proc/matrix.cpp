@@ -6,6 +6,10 @@ matrix* inMatrix(ifstream &ifst)
 	int key;
 	int print;
 	ifst >> print;
+	if (print != 1 && print != 2 && print != 3)
+	{
+		print = 1;
+	}
 	if (print == 1)
 	{
 		matr->print = LINE;
@@ -25,6 +29,11 @@ matrix* inMatrix(ifstream &ifst)
 
 	}
 	ifst >> key;
+	if (key != 1 && key != 2 && key != 3)
+	{
+		cout << "Incottect matrix type" << endl;
+		return 0;
+	}
 	if (key == 1)
 	{
 		matr->key = MATRIX_2D;
@@ -42,7 +51,13 @@ matrix* inMatrix(ifstream &ifst)
 		matr->key = TRG_MATR;
 		matr->obj = (void*)InMatrTrg(ifst);
 	}
+	if (ifst.fail())
+	{
+		cout << "Input fail" << endl;
+		return 0;
+	}
 	return matr;
+	
 };
 
 void MatrSum(matrix* matr)

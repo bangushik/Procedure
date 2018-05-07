@@ -56,14 +56,23 @@ void out(container &c, node *n)
 	}
 	else cout << "container is empty" << endl;
 };
-void inContainer(container &c, ifstream &ifst)
+int inContainer(container &c, ifstream &ifst)
 {
 	matrix *matr;
 	int count;
 	ifst >> count; 
+	if (count <= 0)
+	{
+		cout << "Incorrect count of martix " << endl;
+		return 0;
+	}
 	for (int i = 0;i < count;i++)
 	{
 		matr = inMatrix(ifst);
+		if (matr == 0)
+		{
+			return 0;
+		}
 		push(c,matr);
 	}
 
@@ -95,9 +104,17 @@ void ContainerSort(container &c)
 };
 int GetMethod()
 {
-	int metod;
-	cout << "Vvedite metod sotririvki 1-vozrastanie 2-ubivanie" << endl;
-	cin >> metod;
+	int metod=0;
+	while (!metod)
+	{
+		cout << "Vvedite naprav sotrirovki 1-vozr 2-ubiv" << endl;
+		cin >>metod;
+		if (metod != 1 && metod != 2)
+		{
+			cout << "Incorect metod of sotr" << endl;
+			metod = 0;
+		}
+	}
 	return metod;
 }
 

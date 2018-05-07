@@ -17,7 +17,7 @@ void push(container &c, matrix* info);
 void dell(container &c);
 void clear(container &c);
 void out(container &c, node *n);
-void inContainer(container &c, ifstream &ifst);
+int inContainer(container &c, ifstream &ifst);
 void ViewCont(container &c, ofstream &ofst);
 void ContainerSort(container &c);
 int GetMethod();
