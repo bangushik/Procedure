@@ -1,79 +1,79 @@
-#include "matrix2d.h"
-Matr2d* InMatr2d(ifstream &ifst)
-{
-	Matr2d *matr = new Matr2d;
-	ifst >> matr->strings;
-	ifst >> matr->collums;
-	matr->matr = new int*[matr->strings];
-	for (int i = 0; i < matr->strings; i++)
+	#include "matrix2d.h"
+	Matr2d* InMatr2d(ifstream &ifst)
 	{
-		matr->matr[i] = new int[matr->collums];
-		for (int  j = 0; j < matr->collums; j++)
+		Matr2d *matr = new Matr2d;
+		ifst >> matr->strings;
+		ifst >> matr->collums;
+		matr->matr = new int*[matr->strings];
+		for (int i = 0; i < matr->strings; i++)
 		{
-			ifst >> matr->matr[i][j];
-		}
+			matr->matr[i] = new int[matr->collums];
+			for (int  j = 0; j < matr->collums; j++)
+			{
+				ifst >> matr->matr[i][j];
+			}
 
-	}
-	return matr;
-};
-void OutMatr2d(ofstream &ofst, Matr2d* matr2)
-{
-	ofst << "Это двухмерная матрица: ";
-	ofst << matr2->strings << "x" << matr2->collums << endl;
+		}
+		return matr;
+	};
+	void OutMatr2d(ofstream &ofst, Matr2d* matr2)
+	{
+		ofst << "Это двухмерная матрица: ";
+		ofst << matr2->strings << "x" << matr2->collums << endl;
 	
-	for (int i = 0; i < matr2->strings; i++)
-	{
-		for (int j = 0; j < matr2->collums; j++)
+		for (int i = 0; i < matr2->strings; i++)
 		{
-			ofst << matr2->matr[i][j]<< " ";
+			for (int j = 0; j < matr2->collums; j++)
+			{
+				ofst << matr2->matr[i][j]<< " ";
+			}
+			ofst << endl;
 		}
 		ofst << endl;
-	}
-	ofst << endl;
 
-};
-void OutMatr2dC(ofstream &ofst, Matr2d*matr2)
-{
-	ofst << "Это двухмерная матрица: ";
-	ofst << matr2->strings << "x" << matr2->collums << endl;
-
-	for (int i = 0; i < matr2->collums; i++)
+	};
+	void OutMatr2dC(ofstream &ofst, Matr2d*matr2)
 	{
-		for (int j = 0; j < matr2->strings; j++)
+		ofst << "Это двухмерная матрица: ";
+		ofst << matr2->strings << "x" << matr2->collums << endl;
+
+		for (int i = 0; i < matr2->collums; i++)
 		{
-			ofst << matr2->matr[j][i] << " ";
+			for (int j = 0; j < matr2->strings; j++)
+			{
+				ofst << matr2->matr[j][i] << " ";
+			}
+			ofst << endl;
 		}
 		ofst << endl;
-	}
-	ofst << endl;
-};
-void OutMatr2dL(ofstream &ofst, Matr2d*matr2)
-{
-	ofst << "Это двухмерная матрица: ";
-	ofst << matr2->strings << "x" << matr2->collums << endl;
-
-	for (int i = 0; i < matr2->strings; i++)
+	};
+	void OutMatr2dL(ofstream &ofst, Matr2d*matr2)
 	{
-		for (int j = 0; j < matr2->collums; j++)
+		ofst << "Это двухмерная матрица: ";
+		ofst << matr2->strings << "x" << matr2->collums << endl;
+
+		for (int i = 0; i < matr2->strings; i++)
 		{
-			ofst << matr2->matr[i][j] << " ";
-		}
+			for (int j = 0; j < matr2->collums; j++)
+			{
+				ofst << matr2->matr[i][j] << " ";
+			}
 		
-	}
-	ofst << endl;
-};
-
-int Matr2Sum(Matr2d*matrix)
-{
-	int sum = 0;
-	for (int i = 0; i < matrix->strings; i++)
-	{
-		for (int j = 0; j < matrix->collums; j++)
-		{
-
-			sum = sum + matrix->matr[i][j];
 		}
-	}
-	return sum;
+		ofst << endl;
+	};
 
-};
+	int Matr2Sum(Matr2d*matrix)
+	{
+		int sum = 0;
+		for (int i = 0; i < matrix->strings; i++)
+		{
+			for (int j = 0; j < matrix->collums; j++)
+			{
+
+				sum = sum + matrix->matr[i][j];
+			}
+		}
+		return sum;
+
+	};

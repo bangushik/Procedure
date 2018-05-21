@@ -1,13 +1,13 @@
-#include <iostream>
-#include <fstream>
-using namespace std;
-struct Trgmatr
-{
-	int size;
-	int* trg;
-};
-Trgmatr* InMatrTrg(ifstream &ifst);
-void OutTrgMatr(ofstream &ofst, Trgmatr* matr);
-int MatrTRGSum(Trgmatr* matr);
-void OutMatrTrgC(ofstream &ofst, Trgmatr* matr);
-void OutMatrTrgL(ofstream &ofst, Trgmatr* matr);
+	#include <iostream>
+	#include <fstream>
+	using namespace std;
+	struct trgmatr
+	{
+		int size;
+		int* trg;
+	};
+	trgmatr* InMatrTrg(ifstream &ifst);
+	void OutTrgMatr(ofstream &ofst, trgmatr* matr);
+	int MatrTrgSum(trgmatr* matr);
+	void OutMatrTrgC(ofstream &ofst, trgmatr* matr);
+	void OutMatrTrgL(ofstream &ofst, trgmatr* matr);
